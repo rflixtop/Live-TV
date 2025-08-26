@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live TV Firebase Web App</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="firebaseConfig.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Live TV Channels</h1>
+    <button id="loginBtn">Login</button>
+    <button id="logoutBtn" style="display:none;">Logout</button>
+    <button id="adminBtn" style="display:none;">Admin Panel</button>
+  </header>
+
+  <section id="channelsSection">
+    <input type="text" id="searchInput" placeholder="Search channels..." />
+    <div id="channelsContainer"></div>
+  </section>
+
+  <section id="playerSection" style="display:none;">
+    <h2 id="playerTitle"></h2>
+    <video id="videoPlayer" controls autoplay width="100%" height="360"></video>
+    <button id="closePlayerBtn">Close Player</button>
+  </section>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" id="loginClose">&times;</span>
+      <h2>Login</h2>
+      <input type="email" id="loginEmail" placeholder="Email" />
+      <input type="password" id="loginPassword" placeholder="Password" />
+      <button id="loginSubmit">Login</button>
+      <p>Don't have an account? <a href="#" id="showRegister">Register here</a></p>
+      <p id="loginError" class="error"></p>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div id="registerModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" id="registerClose">&times;</span>
+      <h2>Register</h2>
+      <input type="email" id="registerEmail" placeholder="Email" />
+      <input type="password" id="registerPassword" placeholder="Password" />
+      <button id="registerSubmit">Register</button>
+      <p id="registerError" class="error"></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
